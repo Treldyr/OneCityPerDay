@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 @CrossOrigin(origins = {
         "http://localhost:5173",
         "https://treldyr.github.io/OneCityPerDay_FrontEnd/",
+        "null" // TODO change later to not accept postman !!
 })
 public class CityController {
 
