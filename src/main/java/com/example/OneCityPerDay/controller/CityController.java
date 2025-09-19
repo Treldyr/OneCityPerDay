@@ -12,8 +12,7 @@ import java.util.stream.Collectors;
 @RequestMapping("/cities")
 @CrossOrigin(origins = {
         "http://localhost:5173",
-        "https://treldyr.github.io/OneCityPerDay_FrontEnd/",
-        "null" // TODO change later to not accept postman !!
+        "https://treldyr.github.io/OneCityPerDay_FrontEnd/"
 })
 public class CityController {
 
