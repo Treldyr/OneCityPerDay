@@ -24,10 +24,10 @@ public class DataInitializer implements CommandLineRunner {
         cityService.clearCities();
 
         City paris = new City();
-        paris.setCityNameFr("Dar es Salaam");
-        paris.setCityNameEn("Dar es Salaam");
-        paris.setCountryNameFr("Tanzanie");
-        paris.setCountryNameEn("Tanzania");
+        paris.setCityNameFr("Coimbra");
+        paris.setCityNameEn("Coimbra");
+        paris.setCountryNameFr("Portugal");
+        paris.setCountryNameEn("Portugal");
         paris.setDate(LocalDate.now());
 
         // descriptions
