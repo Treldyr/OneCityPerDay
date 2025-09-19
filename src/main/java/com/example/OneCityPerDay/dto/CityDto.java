@@ -10,8 +10,8 @@ public class CityDto {
     private String countryNameFr;
     private String countryNameEn;
     private LocalDate date;
-    private String descriptionFr;
-    private String descriptionEn;
+    private List<String> descriptionFr;
+    private List<String> descriptionEn;
     private List<CuriosityDto> curiosities;
     private List<PhotoDto> photos;
 
@@ -55,19 +55,19 @@ public class CityDto {
         this.date = date;
     }
 
-    public String getDescriptionFr() {
+    public List<String> getDescriptionFr() {
         return descriptionFr;
     }
 
-    public void setDescriptionFr(String descriptionFr) {
+    public void setDescriptionFr(List<String> descriptionFr) {
         this.descriptionFr = descriptionFr;
     }
 
-    public String getDescriptionEn() {
+    public List<String> getDescriptionEn() {
         return descriptionEn;
     }
 
-    public void setDescriptionEn(String descriptionEn) {
+    public void setDescriptionEn(List<String> descriptionEn) {
         this.descriptionEn = descriptionEn;
     }
 

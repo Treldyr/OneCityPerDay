@@ -10,7 +10,10 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/cities")
-@CrossOrigin(origins = "http://localhost:5173") // TODO : Update avec le vrai site plus tard
+@CrossOrigin(origins = {
+        "http://localhost:5173",
+        "https://treldyr.github.io/OneCityPerDay_FrontEnd/",
+})
 public class CityController {
 
     private final List<CityDto> cities = new ArrayList<>();
