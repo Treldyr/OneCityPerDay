@@ -1,11 +1,12 @@
 package com.example.OneCityPerDay.controller;
 
-import com.example.OneCityPerDay.dto.*;
+import com.example.OneCityPerDay.dto.CityDto;
+import com.example.OneCityPerDay.entity.City;
+import com.example.OneCityPerDay.service.CityService;
 import org.springframework.web.bind.annotation.*;
-import java.util.ArrayList;
+
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Comparator;
 import java.util.stream.Collectors;
 
 @RestController
@@ -16,37 +17,49 @@ import java.util.stream.Collectors;
 })
 public class CityController {
 
-    private final List<CityDto> cities = new ArrayList<>();
-    private long nextId = 1; // compteur pour générer les IDs
+    private final CityService cityService;
+
+    public CityController(CityService cityService) {
+        this.cityService = cityService;
+    }
 
     @PostMapping("/submit")
     public CityDto submitCity(@RequestBody CityDto cityDto) {
-        cityDto.setId(nextId++);
-        cities.add(cityDto);
-        return cityDto;
+        City city = cityService.fromDto(cityDto);
+        city = cityService.saveCity(city);
+        return cityService.toDto(city);
     }
 
     @PostMapping("/submitMany")
     public List<CityDto> submitManyCities(@RequestBody List<CityDto> cityDtos) {
-        for (CityDto cityDto : cityDtos) {
-            cityDto.setId(nextId++);
-            cities.add(cityDto);
-        }
-        return cityDtos;
+        return cityDtos.stream()
+                .map(cityService::fromDto)
+                .map(cityService::saveCity)
+                .map(cityService::toDto)
+                .collect(Collectors.toList());
     }
 
     @GetMapping("/all")
     public List<CityDto> getAllCities() {
-        return cities;
+        return cityService.getAllCities()
+                .stream()
+                .map(cityService::toDto)
+                .collect(Collectors.toList());
     }
 
     @GetMapping("/pastOrToday")
     public List<CityDto> getCitiesPastOrToday() {
         LocalDate today = LocalDate.now();
-        return cities.stream()
-                .filter(city -> !city.getDate().isAfter(today)) // exclut les dates futures
-                .sorted(Comparator.comparing(CityDto::getDate).reversed()) // tri décroissant
+        return cityService.getAllCities()
+                .stream()
+                .filter(city -> !city.getDate().isAfter(today))
+                .sorted((c1, c2) -> c2.getDate().compareTo(c1.getDate()))
+                .map(cityService::toDto)
                 .collect(Collectors.toList());
     }
-}
 
+    @DeleteMapping("/{id}")
+    public void deleteCity(@PathVariable Long id) {
+        cityService.deleteCity(id);
+    }
+}

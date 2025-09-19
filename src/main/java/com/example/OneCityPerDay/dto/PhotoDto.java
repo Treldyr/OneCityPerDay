@@ -2,7 +2,7 @@ package com.example.OneCityPerDay.dto;
 
 public class PhotoDto {
     private String url;
-    private String caption; // légende optionnelle
+    private String caption;
 
     public String getUrl() {
         return url;
