@@ -5,12 +5,14 @@ import com.example.OneCityPerDay.entity.Curiosity;
 import com.example.OneCityPerDay.entity.Photo;
 import com.example.OneCityPerDay.service.CityService;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.util.List;
 
 @Component
+@Profile("!prod")
 public class DataInitializer implements CommandLineRunner {
 
     private final CityService cityService;

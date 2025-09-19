@@ -27,10 +27,10 @@ public class City {
     @Column(name = "description_fr", length = 1000)
     private List<String> descriptionEn;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "city", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Curiosity> curiosities;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "city", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Photo> photos;
 
     public Long getId() { return id; }
