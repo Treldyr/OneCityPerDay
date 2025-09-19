@@ -85,6 +85,6 @@ public class DataInitializer implements CommandLineRunner {
 
         cityService.saveCity(paris);
 
-        System.out.println("✅ Base initialisée !");
+        System.out.println("✅ Base initialisée, c'est bon !");
     }
 }
