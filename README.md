@@ -8,8 +8,11 @@ TODO List :
 
 - Deploy the API online
   ✅ It is deployed with Heruko
+- 
+- Change the Photo class : Caption should be split into CaptionFr and CaptionEn
+  ✅ Done
   
 - Add security to the endpoint (with spring security already installed)
 - Add an endpoint to get a list of dates (the one where a city already exist)
 - Add a security at the add city endpoint : If a city already contain the same date, The add is rejected
-- Change the Photo class : Caption should be split into CaptionFr and CaptionEn (I forgot it, oups) 
+
