@@ -36,6 +36,11 @@ public class CityService {
         cityRepository.deleteById(id);
     }
 
+    public City getCityById(Long id) {
+        return cityRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("City not found with id: " + id));
+    }
+
     // Conversion Entity -> DTO
     public CityDto toDto(City city) {
         CityDto dto = new CityDto();

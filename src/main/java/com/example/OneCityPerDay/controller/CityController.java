@@ -1,5 +1,6 @@
 package com.example.OneCityPerDay.controller;
 
+import com.example.OneCityPerDay.dto.CityDateDto;
 import com.example.OneCityPerDay.dto.CityDto;
 import com.example.OneCityPerDay.entity.City;
 import com.example.OneCityPerDay.service.CityService;
@@ -47,15 +48,21 @@ public class CityController {
                 .collect(Collectors.toList());
     }
 
-    @GetMapping("/pastOrToday")
-    public List<CityDto> getCitiesPastOrToday() {
+    @GetMapping("/datesAvailable")
+    public List<CityDateDto> getDatesAvailable() {
         LocalDate today = LocalDate.now();
         return cityService.getAllCities()
                 .stream()
                 .filter(city -> !city.getDate().isAfter(today))
-                .sorted((c1, c2) -> c2.getDate().compareTo(c1.getDate()))
-                .map(cityService::toDto)
+                .sorted((c1, c2) -> c1.getDate().compareTo(c2.getDate()))
+                .map(city -> new CityDateDto(city.getId(), city.getDate()))
                 .collect(Collectors.toList());
+    }
+
+    @GetMapping("/{id}")
+    public CityDto getCityById(@PathVariable Long id) {
+        City city = cityService.getCityById(id);
+        return cityService.toDto(city);
     }
 
     @DeleteMapping("/{id}")
