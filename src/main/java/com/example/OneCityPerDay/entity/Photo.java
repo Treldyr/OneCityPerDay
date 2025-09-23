@@ -10,7 +10,8 @@ public class Photo {
     private Long id;
 
     private String url;
-    private String caption;
+    private String captionFr;
+    private String captionEn;
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
@@ -18,6 +19,9 @@ public class Photo {
     public String getUrl() { return url; }
     public void setUrl(String url) { this.url = url; }
 
-    public String getCaption() { return caption; }
-    public void setCaption(String caption) { this.caption = caption; }
+    public String getCaptionFr() { return captionFr; }
+    public void setCaptionFr(String captionFr) { this.captionFr = captionFr; }
+
+    public String getCaptionEn() { return captionEn; }
+    public void setCaptionEn(String captionEn) { this.captionEn = captionEn; }
 }

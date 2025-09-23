@@ -64,7 +64,8 @@ public class CityService {
             dto.setPhotos(city.getPhotos().stream().map(p -> {
                 PhotoDto pdto = new PhotoDto();
                 pdto.setUrl(p.getUrl());
-                pdto.setCaption(p.getCaption());
+                pdto.setCaptionFr(p.getCaptionFr());
+                pdto.setCaptionEn(p.getCaptionEn());
                 return pdto;
             }).collect(Collectors.toList()));
         }
@@ -99,7 +100,8 @@ public class CityService {
             city.setPhotos(dto.getPhotos().stream().map(p -> {
                 Photo photo = new Photo();
                 photo.setUrl(p.getUrl());
-                photo.setCaption(p.getCaption());
+                photo.setCaptionFr(p.getCaptionFr());
+                photo.setCaptionEn(p.getCaptionEn());
                 return photo;
             }).collect(Collectors.toList()));
         }
