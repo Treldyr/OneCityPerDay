@@ -97,6 +97,7 @@ public class CityService {
                 curiosity.setDetailFr(c.getDetailFr());
                 curiosity.setDetailEn(c.getDetailEn());
                 curiosity.setUrlPhoto(c.getUrlPhoto());
+                curiosity.setCity(city);
                 return curiosity;
             }).collect(Collectors.toList()));
         }
@@ -107,6 +108,7 @@ public class CityService {
                 photo.setUrl(p.getUrl());
                 photo.setCaptionFr(p.getCaptionFr());
                 photo.setCaptionEn(p.getCaptionEn());
+                photo.setCity(city);
                 return photo;
             }).collect(Collectors.toList()));
         }

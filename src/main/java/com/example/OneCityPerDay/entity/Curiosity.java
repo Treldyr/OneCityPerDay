@@ -20,6 +20,13 @@ public class Curiosity {
 
     private String urlPhoto;
 
+    @ManyToOne
+    @JoinColumn(name = "city_id")
+    private City city;
+
+    public City getCity() { return city; }
+    public void setCity(City city) { this.city = city; }
+
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 

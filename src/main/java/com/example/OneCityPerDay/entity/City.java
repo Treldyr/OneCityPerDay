@@ -24,13 +24,13 @@ public class City {
 
     @ElementCollection
     @CollectionTable(name = "city_description_en", joinColumns = @JoinColumn(name = "city_id"))
-    @Column(name = "description_fr", length = 1000)
+    @Column(name = "description_en", length = 1000)
     private List<String> descriptionEn;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "city", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<Curiosity> curiosities;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "city", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<Photo> photos;
 
     public Long getId() { return id; }
