@@ -61,6 +61,8 @@ public class CityService {
                 cdto.setDetailFr(c.getDetailFr());
                 cdto.setDetailEn(c.getDetailEn());
                 cdto.setUrlPhoto(c.getUrlPhoto());
+                cdto.setAttributionPhotoEn(c.getAttributionPhotoEn());
+                cdto.setAttributionPhotoFr(c.getAttributionPhotoFr());
                 return cdto;
             }).collect(Collectors.toList()));
         }
@@ -71,6 +73,8 @@ public class CityService {
                 pdto.setUrl(p.getUrl());
                 pdto.setCaptionFr(p.getCaptionFr());
                 pdto.setCaptionEn(p.getCaptionEn());
+                pdto.setAttributionEn(p.getAttributionEn());
+                pdto.setAttributionFr(p.getAttributionFr());
                 return pdto;
             }).collect(Collectors.toList()));
         }
@@ -97,6 +101,8 @@ public class CityService {
                 curiosity.setDetailFr(c.getDetailFr());
                 curiosity.setDetailEn(c.getDetailEn());
                 curiosity.setUrlPhoto(c.getUrlPhoto());
+                curiosity.setAttributionPhotoEn(c.getAttributionPhotoEn());
+                curiosity.setAttributionPhotoFr(c.getAttributionPhotoFr());
                 curiosity.setCity(city);
                 return curiosity;
             }).collect(Collectors.toList()));
@@ -108,6 +114,8 @@ public class CityService {
                 photo.setUrl(p.getUrl());
                 photo.setCaptionFr(p.getCaptionFr());
                 photo.setCaptionEn(p.getCaptionEn());
+                photo.setAttributionEn(p.getAttributionEn());
+                photo.setAttributionFr(p.getAttributionFr());
                 photo.setCity(city);
                 return photo;
             }).collect(Collectors.toList()));
