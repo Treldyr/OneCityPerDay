@@ -13,10 +13,14 @@ public class CorsConfig {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**")
-                        .allowedOrigins("*") // TODO filter les origines
-                        .allowedMethods("GET","POST","PUT","DELETE")
-                        .allowCredentials(false);
+                registry.addMapping("/cities/**")
+                        .allowedOriginPatterns(
+                                "http://localhost:5173",
+                                "http://onecityperday.com"
+                        )
+                        .allowedMethods("GET", "POST", "DELETE", "OPTIONS")
+                        .allowedHeaders("*")
+                        .allowCredentials(true);
             }
         };
     }
