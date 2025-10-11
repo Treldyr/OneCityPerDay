@@ -16,7 +16,10 @@ public class CorsConfig {
                 registry.addMapping("/cities/**")
                         .allowedOriginPatterns(
                                 "http://localhost:5173",
-                                "http://onecityperday.com"
+                                "http://onecityperday.com",
+                                "https://onecityperday.com",
+                                "http://www.onecityperday.com",
+                                "https://www.onecityperday.com"
                         )
                         .allowedMethods("GET", "POST", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
