@@ -4,8 +4,7 @@ public class PhotoDto {
     private String url;
     private String captionFr;
     private String captionEn;
-    private String attributionFr;
-    private String attributionEn;
+    private String attribution;
 
     public String getUrl() {
         return url;
@@ -31,11 +30,7 @@ public class PhotoDto {
         this.captionEn = captionEn;
     }
 
-    public String getAttributionFr() {return attributionFr;}
+    public String getAttribution() {return attribution;}
 
-    public void setAttributionFr(String attributionFr) {this.attributionFr = attributionFr;}
-
-    public String getAttributionEn() {return attributionEn;}
-
-    public void setAttributionEn(String attributionEn) {this.attributionEn = attributionEn;}
+    public void setAttribution(String attribution) {this.attribution = attribution;}
 }

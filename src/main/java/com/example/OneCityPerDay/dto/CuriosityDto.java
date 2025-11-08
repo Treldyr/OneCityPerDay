@@ -6,8 +6,7 @@ public class CuriosityDto {
     private String detailFr;
     private String detailEn;
     private String urlPhoto;
-    private String attributionPhotoFr;
-    private String attributionPhotoEn;
+    private String attributionPhoto;
 
     public String getTitleFr() {
         return titleFr;
@@ -49,11 +48,7 @@ public class CuriosityDto {
         this.urlPhoto = urlPhoto;
     }
 
-    public String getAttributionPhotoFr() {return attributionPhotoFr;}
+    public String getAttributionPhoto() {return attributionPhoto;}
 
-    public void setAttributionPhotoFr(String attributionPhotoFr) {this.attributionPhotoFr = attributionPhotoFr;}
-
-    public String getAttributionPhotoEn() {return attributionPhotoEn;}
-
-    public void setAttributionPhotoEn(String attributionPhotoEn) {this.attributionPhotoEn = attributionPhotoEn;}
+    public void setAttributionPhoto(String attributionPhoto) {this.attributionPhoto = attributionPhoto;}
 }
