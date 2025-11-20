@@ -13,15 +13,19 @@ public class CorsConfig {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
+
+                // GET accessible depuis toutes origines
+                registry.addMapping("/cities/**")
+                        .allowedOrigins("*")
+                        .allowedMethods("GET")
+                        .allowedHeaders("*");
+
+                // POST et DELETE accessibles uniquement depuis le localhost
                 registry.addMapping("/cities/**")
                         .allowedOriginPatterns(
-                                "http://localhost:5173",
-                                "http://onecityperday.com",
-                                "https://onecityperday.com",
-                                "http://www.onecityperday.com",
-                                "https://www.onecityperday.com"
+                                "http://localhost:5173"
                         )
-                        .allowedMethods("GET", "POST", "DELETE", "OPTIONS")
+                        .allowedMethods("POST", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
                         .allowCredentials(true);
             }
