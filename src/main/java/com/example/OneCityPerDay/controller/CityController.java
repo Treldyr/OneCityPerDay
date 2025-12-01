@@ -24,6 +24,7 @@ public class CityController {
         this.cityService = cityService;
     }
 
+    @CrossOrigin(origins = {"http://localhost:5173", "http://127.0.0.1:5173"}, allowCredentials = "true")
     @PostMapping("/submit")
     public CityDto submitCity(@RequestBody CityDto cityDto) {
         City city = cityService.fromDto(cityDto);
@@ -31,6 +32,7 @@ public class CityController {
         return cityService.toDto(city);
     }
 
+    @CrossOrigin(origins = {"http://localhost:5173", "http://127.0.0.1:5173"}, allowCredentials = "true")
     @PostMapping("/submitMany")
     public List<CityDto> submitManyCities(@RequestBody List<CityDto> cityDtos) {
         return cityDtos.stream()
@@ -40,6 +42,7 @@ public class CityController {
                 .collect(Collectors.toList());
     }
 
+    @CrossOrigin(origins = "*")
     @GetMapping("/all")
     public List<CityDto> getAllCities() {
         return cityService.getAllCities()
@@ -48,6 +51,7 @@ public class CityController {
                 .collect(Collectors.toList());
     }
 
+    @CrossOrigin(origins = "*")
     @GetMapping("/datesAvailable")
     public List<CityDateDto> getDatesAvailable() {
         LocalDate today = LocalDate.now();
@@ -59,12 +63,14 @@ public class CityController {
                 .collect(Collectors.toList());
     }
 
+    @CrossOrigin(origins = "*")
     @GetMapping("/{id}")
     public CityDto getCityById(@PathVariable Long id) {
         City city = cityService.getCityById(id);
         return cityService.toDto(city);
     }
 
+    @CrossOrigin(origins = {"http://localhost:5173", "http://127.0.0.1:5173"}, allowCredentials = "true")
     @DeleteMapping("/{id}")
     public void deleteCity(@PathVariable Long id) {
         cityService.deleteCity(id);
