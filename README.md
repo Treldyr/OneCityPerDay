@@ -2,7 +2,7 @@
 A Back-end in Java Spring boot storing a list of cities : One for each day.
 
 The final goal is to host a website that present one underrated city around the world each day, show some curiosities, pictures, history...
-The website using the APIs is deployed here : https://treldyr.github.io/OneCityPerDay_FrontEnd/
+The website using the APIs is deployed here : https://onecityperday.com/
 
 TODO List : 
 
